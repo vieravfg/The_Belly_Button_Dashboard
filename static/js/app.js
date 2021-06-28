@@ -16,7 +16,8 @@ function init(){
         // Choosing subject 940 
         console.log(data.names[0]);
         buildbar(data.names[0]);
-        buildbubble(data.names[0])
+        buildbubble(data.names[0]);
+        demographics(data.names[0])
 
     });
 };
@@ -35,9 +36,30 @@ function optionChanged() {
     // Build the plot with the new selected option 
     buildbar(selectedoption);
     buildbubble(selectedoption);
+    demographics(selectedoption)
 }
 
+// Function for the demographics info table
+function demographics(selectedoption){
+    d3.json("samples.json").then((data)=> {
+        // Create metadata variable
+        var metadata = data.metadata;
+        console.log(metadata);
+        // find  info by id
+        var info_data = metadata.filter(row => row.id.toString() === selectedoption)[0];
+        // select 
+        var demo_Info = d3.select("#sample-metadata");
+        // clear the demographic info before entering new data
+        demo_Info.html("");
+        // Enter data to table by appending it to demo_Info
+        Object.entries(info_data).forEach((key)=>{
+            demo_Info.append("p").text(key[0].toUpperCase() + ": " + key[1]+ "\n");
+        });
+    });
+};  
 
+
+// Function for the bar plot
 function buildbar(selectedoption){
     d3.json("samples.json").then((data)=> {
         var sample_data = data.samples.filter(object => object.id.toString() === selectedoption)[0];
@@ -125,6 +147,8 @@ function buildbubble(selectedoption){
         Plotly.newPlot("bubble", bubbledata, layout); 
     });
 }
+
+
 
 
 
