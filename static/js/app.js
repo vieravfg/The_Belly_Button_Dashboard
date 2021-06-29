@@ -62,7 +62,6 @@ function demographics(selectedoption){
     });
 };  
 
-
 // Function for the bar plot
 function buildbar(selectedoption){
     d3.json("samples.json").then((data)=> {
