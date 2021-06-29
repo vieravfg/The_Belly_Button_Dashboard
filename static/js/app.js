@@ -119,6 +119,7 @@ function buildbubble(selectedoption){
             marker: {
                 size: sample_val,
                 color: otu_ids,
+                // Change color scale of Bubbles
                 colorscale: 'Picnic',
                 showscale: true,
                 colorbar: {
