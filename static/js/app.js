@@ -141,6 +141,7 @@ function buildbubble(selectedoption){
         var layout = {
             xaxis:{title: "OTU ID"},
             title: "Bacteria Cultures Per Sample",
+            // change size of plot
             height: 500,
             width: 1000,
         }
