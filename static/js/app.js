@@ -1,19 +1,18 @@
+// Create init function
 function init(){
 
-     //read the data
+     //Read the data
      d3.json("samples.json").then((data)=> {
         console.log(data);
 
-        // appending ids on dropdown
+        // Appending ids on dropdown
         data.names.forEach((id) => {
             d3.select("#selDataset")
             .append("option")
             .text(id)
             .property("value");
-
-
         });
-        // Choosing subject 940 
+        // Choosing the first subject 
         console.log(data.names[0]);
         buildbar(data.names[0]);
         buildbubble(data.names[0]);
@@ -21,8 +20,8 @@ function init(){
 
     });
 };
-init();
-
+// Run the function
+init(); 
 
 // Call optionChanged when a change takes place to the DOM
 d3.selectAll("body").on("change", optionChanged);
@@ -45,7 +44,7 @@ function demographics(selectedoption){
         // Create metadata variable
         var metadata = data.metadata;
         console.log(metadata);
-        // find  info by id
+        // find info by filtering id
         var info_data = metadata.filter(row => row.id.toString() === selectedoption)[0];
         // select #sample-metadata panel with d3
         var demo_Info = d3.select("#sample-metadata");
@@ -58,7 +57,7 @@ function demographics(selectedoption){
         Object.entries(info_data).forEach((key)=>{
             demo_Info.append("p").text(key[0].toUpperCase() + ": " + key[1]+ "\n");
         });
-        // To build the gauge chart
+        // Build the gauge chart
         buildgauge(wfreq);
     });
 };  
@@ -99,11 +98,10 @@ function buildbar(selectedoption){
                 b: 100,
             }
         };
-        
+        // Build the bar plot
         Plotly.newPlot("bar", bardata, layout);   
         
-    });
-    
+    });    
 
 };
 
@@ -148,7 +146,7 @@ function buildbubble(selectedoption){
             width: 1000,
         }
 
-        // Create the bubble plot
+        // Build the bubble plot
         Plotly.newPlot("bubble", bubbledata, layout); 
     });
 }

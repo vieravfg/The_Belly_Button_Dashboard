@@ -8,6 +8,7 @@ function buildgauge(wfreq) {
           title: { text: "<b> Belly Button Washing Fequency </b> <br> Scrubs per Week" , font: { size: 18 } },
           number: { font: { size: 62, color:'#11848C' }},
           gauge: {
+            // Show all ticks from 0 to 9 
             axis: { range: [null, 9], tickwidth: 1, tickcolor: "#0B5587", nticks:10 },
             bar: { color: "#E6CC6E" },
             bgcolor: "white",
@@ -41,6 +42,6 @@ var layout = {
     };
       
 
-    // Create the Gauge Chart
+    // Build the Gauge Chart
     Plotly.newPlot("gauge", data, layout);
 }
