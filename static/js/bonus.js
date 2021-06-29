@@ -6,20 +6,27 @@ function buildgauge(wfreq) {
           type: "indicator",
           mode: "gauge+number",
           value: wfreq,
-          title: { text: "Scrubs per Week" , font: { size: 19 } },
-          number: { font: { size: 62, color:'cornflowerblue' }},
+          title: { text: "Belly Button Washing Fequency <br> Scrubs per Week" , font: { size: 18 } },
+          number: { font: { size: 62, color:'#11848C' }},
           gauge: {
-            axis: { range: [null, 9], tickwidth: 1, tickcolor: "red", nticks:10 },
-            bar: { color: "LightCoral" },
+            axis: { range: [null, 9], tickwidth: 1, tickcolor: "#0B5587", nticks:10 },
+            bar: { color: "#E6CC6E" },
             bgcolor: "white",
             borderwidth: 2,
             bordercolor: "Lavender",
             steps: [
-              { range: [0, 4.5], color: "cyan" },
-              { range: [4.5, 9], color: "orange" }
+              { range: [0, 1], color: "#F2FCFC" },
+              { range: [1, 2], color: "#E5F9F9" },
+              { range: [2, 3], color: "#D8F6F5" },
+              { range: [3, 4], color: "#CBF3F2"},
+              { range: [4, 5], color: "#BEF1EF" },
+              { range: [5, 6], color: "#B0EEEC" },
+              { range: [6, 7], color: "#A3EBE9" },
+              { range: [7, 8], color: "#96E8E5" },
+              { range: [8, 9], color: "#89E5E2" },
             ],
             threshold: {
-              line: { color: "yellow", width: 4 },
+              line: { color: "#7AB97A", width: 4 },
               thickness: 1.8,
               value: wfreq
             }
@@ -28,9 +35,9 @@ function buildgauge(wfreq) {
     ];
       
 var layout = {
-        width: 500,
-        height: 400,
-        margin: { t: 25, r: 25, l: 25, b: 25 },
+        width: 400,
+        height: 300,
+        margin: { t: 150, r: 25, l: 25, b: 5 },
         font: { color: "Gray", family: "Arial"}
     };
       

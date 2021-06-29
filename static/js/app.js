@@ -152,9 +152,3 @@ function buildbubble(selectedoption){
         Plotly.newPlot("bubble", bubbledata, layout); 
     });
 }
-
-
-
-
-
-
