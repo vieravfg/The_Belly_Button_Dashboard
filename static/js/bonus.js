@@ -1,12 +1,11 @@
-//function to build gauge chart
+// Function to build gauge chart
 function buildgauge(wfreq) {
     var data = [
-        {
-          domain: { x: [0, 1], y: [0, 1] },
+        {      
           type: "indicator",
           mode: "gauge+number",
           value: wfreq,
-          title: { text: "Belly Button Washing Fequency <br> Scrubs per Week" , font: { size: 18 } },
+          title: { text: "<b> Belly Button Washing Fequency </b> <br> Scrubs per Week" , font: { size: 18 } },
           number: { font: { size: 62, color:'#11848C' }},
           gauge: {
             axis: { range: [null, 9], tickwidth: 1, tickcolor: "#0B5587", nticks:10 },
@@ -38,10 +37,10 @@ var layout = {
         width: 400,
         height: 300,
         margin: { t: 150, r: 25, l: 25, b: 5 },
-        font: { color: "Gray", family: "Arial"}
+        font: { color: "charcoal", family: "Arial"}
     };
       
 
-    //plot
+    // Create the Gauge Chart
     Plotly.newPlot("gauge", data, layout);
 }
