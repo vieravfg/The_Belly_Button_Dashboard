@@ -6,7 +6,7 @@ The dataset reveals that a small handful of microbial species (also called opera
 - - -
 ## Results 
 My github page with my completed assignment is the following: [The Belly Button Web]()
-![Page Picture](Images/page.png)
+![Page Picture](images/page.png)
 - - -
 
 ## Instructions
