@@ -103,7 +103,7 @@ function buildbar(selectedoption){
     });    
 
 };
-
+// Function for the bubble plot
 function buildbubble(selectedoption){
     d3.json("samples.json").then((data)=> {
         var sample_data = data.samples.filter(object => object.id.toString() === selectedoption)[0];
@@ -119,8 +119,9 @@ function buildbubble(selectedoption){
             marker: {
                 size: sample_val,
                 color: otu_ids,
-                // Change color scale of Bubbles
+                // Change color scale 
                 colorscale: 'Picnic',
+                // Show color scale 
                 showscale: true,
                 colorbar: {
                     thickness: 10,
