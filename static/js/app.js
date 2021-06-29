@@ -47,14 +47,19 @@ function demographics(selectedoption){
         console.log(metadata);
         // find  info by id
         var info_data = metadata.filter(row => row.id.toString() === selectedoption)[0];
-        // select 
+        // select #sample-metadata panel with d3
         var demo_Info = d3.select("#sample-metadata");
+        // create variable and filter frequency for gauge chart 
+        var wfreq = info_data.wfreq;
+        console.log(wfreq);
         // clear the demographic info before entering new data
         demo_Info.html("");
         // Enter data to table by appending it to demo_Info
         Object.entries(info_data).forEach((key)=>{
             demo_Info.append("p").text(key[0].toUpperCase() + ": " + key[1]+ "\n");
         });
+        // To build the gauge chart
+        buildgauge(wfreq);
     });
 };  
 
